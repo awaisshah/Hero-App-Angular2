@@ -5,7 +5,6 @@ import { HeroService } from './hero.service';
 import { DashboardComponent } from './dashboard.component';
 import { HeroDetailComponent } from './hero-detail.component';
 
-
 @Component ({
     selector: 'my-app',
     template: `
@@ -16,29 +15,16 @@ import { HeroDetailComponent } from './hero-detail.component';
     </nav>
     <router-outlet></router-outlet>
     `,
+    styleUrls: ['app/app.component.css'],
     directives: [ROUTER_DIRECTIVES],
     providers: [ROUTER_PROVIDERS,HeroService]
 
 })
 
 @RouteConfig([
-  {
-    path: '/heroes',
-    name: 'Heroes',
-    component: HeroesComponent
-  },
-  {
-    path: '/dashboard',
-    name: 'Dashboard',
-    component: DashboardComponent,
-    useAsDefault: true
-  },
-  {
-  path: '/detail/:id',
-  name: 'HeroDetail',
-  component: HeroDetailComponent
-  }
-  
+  { path: '/heroes',     name: 'Heroes',     component: HeroesComponent },
+  { path: '/dashboard',  name: 'Dashboard',  component: DashboardComponent, useAsDefault: true },
+  { path: '/detail/:id', name: 'HeroDetail', component: HeroDetailComponent }
 ])
 
 
